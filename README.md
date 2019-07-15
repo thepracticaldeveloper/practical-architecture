@@ -22,6 +22,12 @@ The main idea of [the book](https://leanpub.com/practical-software-architecture)
 
 **You shouldn't hide in a corner and write all this by yourself.**
 
+## Exporting to HTML
+
+This repository contains a script to generate a single HTML version of the Guide. You can use this script manually or include it as part of an automated process. A good practice is to use it from a pipeline to publish a new version of this guide every time you merge a work-in-progress documentation branch into master.
+
+The script requires that you have installed [Pandoc](https://pandoc.org/installing.html).
+
 ## Feedback
 
 Please send me any feedback or question you may have by opening an Issue in this repository.  
