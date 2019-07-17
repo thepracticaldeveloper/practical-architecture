@@ -1,4 +1,4 @@
-# Decision: Logging Platform
+# Decision: [title]
 
 * **Date**: [date when you made the decision]
 * **Participants**: [who participated in the decision]
@@ -37,6 +37,8 @@ licenses.
 State your preference and your decision. Note that they **don't need to 
 match**. Explain why you made that decision, you can reference constraints 
 by number.
+
+## Action Points
 
 It's also very useful if you include in this section the Action Points, with 
 names of people that will work on making this decision happen. 

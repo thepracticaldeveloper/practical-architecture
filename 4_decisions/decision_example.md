@@ -48,7 +48,7 @@ However, given our constraints, we have to go for the On-premise option for now,
 
 Anyway, we'll start the approval process in parallel because we'd like to explore the cloud services in the future.
 
-### Action Points
+## Action Points
 
 * John Doe will contact LogYou and manage the process to get a license asap.
 * Michael will take care of asking for new infra resources and setting them up within their team.
