@@ -1,0 +1,46 @@
+@startuml
+skinparam Padding 10
+skinparam ArrowColor #fe5900
+skinparam ActorBorderColor black
+
+actor "Dev / Ops" as devops
+actor "App User" as user1
+actor "API User" as user2
+
+
+' System services
+rectangle "My System" {
+
+    rectangle "Frontend" as frontend {
+        rectangle "Mobile App" as app
+        rectangle "External Gateway" as ext
+    }
+
+    rectangle "Backend" as backend {
+        rectangle "API Gateway" as api
+        rectangle "Users service" as users
+        rectangle "Billing service" as billing
+        rectangle "Email service" as email
+    }
+}
+
+' External services
+rectangle "External Email Service" as extmail
+rectangle "ERP Service" as erp
+
+' Relations
+user1 -d-> app
+user2 -d-> ext
+
+app --> api
+ext -d-> api
+
+api --> email
+api --> users
+api --> billing
+
+email --> extmail
+users --> erp
+
+devops .r.> api
+@enduml

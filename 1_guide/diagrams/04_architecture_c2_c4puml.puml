@@ -1,0 +1,45 @@
+@startuml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Component.puml
+
+LAYOUT_WITH_LEGEND
+
+title Component diagram (level 2) using C4-PlantUML
+
+Person_Ext(user1, "App User")
+Person_Ext(user2, "API User")
+Person(devops, "Dev / Ops")
+
+System_Ext(ext_email, "External Email Service", "Provides Email functionality in the cloud")
+System_Ext(erp, "ERP", "Full platform to manage customers")
+
+System_Boundary(system, "My System") {
+
+    Container_Boundary(frontend, "Frontend") {
+
+        Component(app, "Mobile App", "Android", "Allows users to manage their account")
+        Component(ext, "External Gateway", "Ingress", "Allows external systems to access account info via authentication")
+
+    }
+    Container_Boundary(backend, "Backend") {
+
+        Component(api, "API Gateway", "Zuul", "Redirect calls to others services")
+        Component(users, "Users service", "Spring Boot", "Manages Users and their features")
+        Component(billing, "Billing service", "Spring Boot", "Generates and updates bills")
+        Component(email, "Email service", "Spring Boot", "Triggers email notifications")
+    }
+}
+
+Rel(user1, app, "Uses", "JSON/HTTPS")
+Rel(user2, ext, "Uses", "JSON/HTTPS")
+Rel(devops, api, "Uses", "JSON/HTTPS")
+
+Rel(email, ext_email, "Uses", "JSON/HTTPS")
+Rel(users, erp, "Uses", "XML/HTTPS")
+
+Rel(app, api, "Uses", "JSON/HTTPS")
+Rel(ext, api, "Uses", "JSON/HTTPS")
+
+Rel(api, users, "redirects to", "JSON/HTTP")
+Rel(api, billing, "redirects to", "JSON/HTTP")
+Rel(api, email, "redirects to", "JSON/HTTP")
+@enduml

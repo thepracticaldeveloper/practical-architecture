@@ -4,17 +4,16 @@
 
 This repository contains all the documentation templates and examples that are described in the book [The Practical Architecture Process](https://leanpub.com/practical-software-architecture). 
 
-> This repo is work in progress.
-
 ## Contents
 
-There are five folders in which you can find multiple markdown files. Each file has some summarized information about what you should include there.
+There are six folders in which you can find multiple markdown files. Each file has some summarized information about what you should include there.
 
 1. Guide. An evolving set of documents explaining your Software Architecture and related topics like common patterns and operations.
 2. Roadmap. The 'Make it happen' section. Includes the planning over time.
 3. Designs. Each team should populate this section with new feature designs.
 4. Decisions. Keep your Architecture Decision Records here. Includes the template and an example.
 5. Journal. Holds meeting notes, whiteboard pictures, etc.
+6. Modules or Teams. Contains documents and designs that have a local impact.
 
 ## The Process
 
@@ -22,11 +21,17 @@ The main idea of [the book](https://leanpub.com/practical-software-architecture)
 
 **You shouldn't hide in a corner and write all this by yourself.**
 
+## Rendering Diagrams
+
+If you work with PlantUML and keep your `.puml` files in this repo, you can use a command to automatically render all your files to PNG images: `generate-puml-images.sh`. Since it's not straightforward to embed `puml` diagrams into markdown, I recommend you to keep the images under version control as well. To run this script you can either do it manually or setup a pipeline that triggers it and does commit/push of the new versions.
+
+The script used in this repository requires [Java](https://www.java.com/en/download/) to convert `.puml` files to PNG images. 
+
 ## Exporting to HTML
 
-This repository contains a script to generate a single HTML version of the Guide. You can use this script manually or include it as part of an automated process. A good practice is to use it from a pipeline to publish a new version of this guide every time you merge a work-in-progress documentation branch into master.
+This repository also contains a script to generate a single HTML version of the Guide: `generate-guide.sh`. You can use this script manually or include it as part of an automated process. A good practice is to use it from a pipeline to publish a new version of this guide every time you merge a work-in-progress documentation branch into master.
 
-The script requires that you have installed [Pandoc](https://pandoc.org/installing.html).
+The scripts requires [Pandoc](https://pandoc.org/installing.html) to generate the Guide in HTML.
 
 ## Feedback
 
