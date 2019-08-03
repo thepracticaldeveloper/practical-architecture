@@ -8,4 +8,4 @@ They should tell most of the story by themselves, but feel free to add some desc
 
 If you're starting a project from scratch, avoid including here your *Target Architecture*. This section should reflect the current status of your Architecture, not the ideal situation where you want to be (that will be placed in the *Roadmap* section). Read Chapter 5 to understand how you describe your *Roadmap*.  
 
-![Example of Component Diagram using C4-PlantUML](./diagrams/04_architecture_c2_c4puml.png)
+![Example of Component Diagram using C4-PlantUML](images/04_architecture_c2_c4puml.png)

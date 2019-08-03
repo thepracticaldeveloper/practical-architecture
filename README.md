@@ -33,6 +33,8 @@ This repository also contains a script to generate a single HTML version of the 
 
 The scripts requires [Pandoc](https://pandoc.org/installing.html) to generate the Guide in HTML.
 
+Your guide in HTML and all images (PNG assumed in the script) will be exported to the `output` folder after running the script.
+
 ## Feedback
 
 Please send me any feedback or question you may have by opening an Issue in this repository.  
