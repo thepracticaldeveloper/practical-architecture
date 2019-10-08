@@ -1,5 +1,5 @@
 /*
- * From: https://gist.github.com/killercup/5917178
+ * Based on https://gist.github.com/killercup/5917178
  */
 
 html {
@@ -72,7 +72,7 @@ img {
 h1, h2, h3, h4, h5, h6 {
     color: #111;
     line-height: 125%;
-    margin-top: 2em;
+    margin-top: 1.5em;
     font-weight: normal;
 }
 

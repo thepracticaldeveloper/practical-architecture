@@ -1,4 +1,4 @@
-# 4. Architecture Overview
+## 1.4. Architecture Overview
 
 The most important part of this section should be the System Context and the Container diagrams (C1 and C2 respectively in the [C4 model](https://c4model.com/)). 
 

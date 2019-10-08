@@ -1,4 +1,6 @@
-# Architecture Goal
+# 2. Architecture Roadmap
+
+## 2.1. Architecture Goal
 
 See [Chapter 5 in the book](https://leanpub.com/practical-software-architecture) to learn how to fill in this section. Here, you depict the Architecture you want to achieve, usually in multiple iterations.
 

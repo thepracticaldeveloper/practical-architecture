@@ -21,19 +21,24 @@ The main idea of [the book](https://leanpub.com/practical-software-architecture)
 
 **You shouldn't hide in a corner and write all this by yourself.**
 
-## Rendering Diagrams
-
-If you work with PlantUML and keep your `.puml` files in this repo, you can use a command to automatically render all your files to PNG images: `generate-puml-images.sh`. Since it's not straightforward to embed `puml` diagrams into markdown, I recommend you to keep the images under version control as well. To run this script you can either do it manually or setup a pipeline that triggers it and does commit/push of the new versions.
-
-The script used in this repository requires [Java](https://www.java.com/en/download/) to convert `.puml` files to PNG images. 
-
 ## Exporting to HTML
 
 This repository also contains a script to generate a single HTML version of the Guide: `generate-guide.sh`. You can use this script manually or include it as part of an automated process. A good practice is to use it from a pipeline to publish a new version of this guide every time you merge a work-in-progress documentation branch into master.
 
 The scripts requires [Pandoc](https://pandoc.org/installing.html) to generate the Guide in HTML.
 
-Your guide in HTML and all images (PNG assumed in the script) will be exported to the `output` folder after running the script.
+Your guide will be exported to the `output` folder after running the script, in two different formats:
+
+* All in one page: that's the `index.html` file. You can copy this file, `pandoc.css` and the `images` folder and you have your documentation website ready to be published.
+* One section per page: those are the `1_guide.html` file and others. You can use this approach if your sections get too big. The script also generates a file `index_multipage.html` for your convenience.
+
+## Rendering Diagrams
+
+If you work with PlantUML and keep your `.puml` files in this repo, you can use a command to automatically render all your files to PNG images: `render-puml-images.sh`. Then you can include the images in your markdown documents. 
+
+You can either run this script manually or setup a pipeline that triggers it automatically when generating the output documents.
+
+The script used in this repository requires [Java](https://www.java.com/en/download/) to convert `.puml` files to PNG images. 
 
 ## Feedback
 
