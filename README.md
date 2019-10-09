@@ -1,5 +1,7 @@
 # The Practical Architecture Process - Resources
 
+[![Build Status](https://travis-ci.org/thepracticaldeveloper/practical-architecture.svg?branch=master)](https://travis-ci.org/thepracticaldeveloper/practical-architecture)
+
 ## Intro
 
 This repository contains a set of Software Architecture document templates and examples in Markdown format. It also includes scripts to generate a basic website in HTML (check result [here](http://archguide.s3-website-us-east-1.amazonaws.com/)). You can use it as a baseline to build all your Software Architecture docs. 
