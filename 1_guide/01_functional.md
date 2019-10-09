@@ -1,4 +1,6 @@
-# 1. Functional description
+# 1. Guide
+
+## 1.1. Functional description
 
 Ideally, this section contains just a brief description of what your system does or what you want to accomplish with it, in case it's not yet released.
 

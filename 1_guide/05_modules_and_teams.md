@@ -1,4 +1,4 @@
-# 5. Modules and Teams
+## 1.5. Modules and Teams
 
 Is your system divided into different modules/components/microservices? If so, list them here and include also how they map to the different teams. 
 

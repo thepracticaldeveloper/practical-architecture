@@ -1,16 +1,18 @@
-# Design Template [Name of the functionality]
+# 3. Designs
+
+## 3.1. Design Template [Name of the functionality]
 
 * **Date**: [date when you made the design]
 * **Participants**: [who participated in the elaboration]
 * **Ticket**: [if you have a ticketing system e.g. JIRA]
 
-## Requirements or Problem
+### Requirements or Problem
 
 Explain here the requirements of the new functionality, or simply link to a different resource if it's already documented somewhere.
 
 Make sure the requirements are functional and focus on the problem you want to solve, without mentioning the solution.
 
-## Constraints
+### Constraints
 
 Include here a numbered list of your constraints. Think about:
  
@@ -22,7 +24,7 @@ with other teams.
 licenses.
 * _Security/Availability/etc._
 
-## Decisions and Meetings
+### Decisions and Meetings
 
 Add here references to other sessions, in case you have them, where you discussed this topic and/or made decisions impacting this design.
 
@@ -30,6 +32,6 @@ As you can see, this is just a way to keep more structured pages like this one (
 
 You may also write down directly in this section if those notes are short enough. You could even omit this section entirely if the design doesn't need the whole process.
 
-## Solution Design
+### Solution Design
 
 Include here the solution description. My recommendation is that you use drawings like Sequence Diagrams and Block Diagrams.
