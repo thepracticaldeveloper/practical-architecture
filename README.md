@@ -2,7 +2,7 @@
 
 ## Intro
 
-This repository contains a set of Software Architecture document templates and examples in Markdown format. It also includes scripts to generate a basic website in HTML. You can use it as a baseline to build all your Software Architecture docs. 
+This repository contains a set of Software Architecture document templates and examples in Markdown format. It also includes scripts to generate a basic website in HTML (check result [here](http://archguide.s3-website-us-east-1.amazonaws.com/)). You can use it as a baseline to build all your Software Architecture docs. 
 
 These artifacts are described in the book [The Practical Architecture Process](https://leanpub.com/practical-software-architecture), which main focus is not the Architecture Guide itself, but the **process** you follow to obtain these artifacts and a proper Software Architecture. Get the book on [LeanPub](https://leanpub.com/practical-software-architecture).
 
@@ -33,6 +33,12 @@ Your guide will be exported to the `output` folder after running the script, in 
 
 * All in one page: that's the `index.html` file. You can copy this file, `pandoc.css` and the `images` folder and you have your documentation website ready to be published.
 * One section per page: those are the `1_guide.html` file and others. You can use this approach if your sections get too big. The script also generates a file `index_multipage.html` for your convenience.
+
+## Deploying the Documentation
+
+Once you generate the HTML version of the Software Architecture documentation, you can deploy it _somewhere_ so people in your organization can access it. 
+
+As an example, I've included in this base set of files a `.travis.yml` file that uses Travis integration with GitHub to deploy the resulting documents to a publicly-available S3 Bucket. Actually, you can have a look at the latest result right now: [archguide.s3-website-us-east-1.amazonaws.com](http://archguide.s3-website-us-east-1.amazonaws.com/).
 
 ## Rendering Diagrams
 

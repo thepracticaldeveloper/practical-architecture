@@ -19,5 +19,3 @@ deploy:
   skip_cleanup: true
   on:
     repo: thepracticaldeveloper/practical-architecture
-    # temporary enabled to test
-    all_branches: true
