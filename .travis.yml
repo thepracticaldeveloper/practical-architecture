@@ -1,0 +1,20 @@
+language: java
+jdk:
+  - openjdk8
+
+before_install:
+  - sudo apt-get install -y pandoc
+
+script: ./generate-guide.sh
+
+deploy:
+  provider: s3
+  access_key_id: AKIARMRCKXQVNT2WVEXY
+  secret_access_key:
+    secure: FC6baNUn5/adC1Av5u4G/bmJZfEnbN5xGjLIi+IngxFX/LdYdkL0Smp/GDEQ++8FG+uEhlM0wxEOkYpAMUTD8WavPqSEeOy/QvrAervoM1IpMASw+ThBuI7WGOB46Ktv0Fu8qDG/xHt6T0hSPLtiilN70w8Gj1leQo6ZnqSdRZvPvUcuRS1Sun6VrZhixgyxIZcgZdWmHJA5BLXyTVxBgWqncQqM37/BPQJ9JHyv3zTB08N+2KGDIHJON6JJpS3t0zbKfgA9pwK1V8qfw2eAx03Ld1Se6KzTjb55DDh9P17jiVc6KmHOk2f03eQX4XK6daDh72HsiqWAtXTPmfyiHH3Kyw/Jtg5QNz68zGuylHGLKi7gyb1UTKbmSst0bX4UrO+gqCGhk35GIz74ZR7pLSH8F2xgnxaN8zqGW8yK0P+t1lsWTRoLHJ6WgkRlFhJNScKCqiCjxTU5zwoS6CbCgWkVO9YnafOush7l9HHAUHUY773kmKJbsreCMEcRy9hj473FssO0S+/WjqkhrN0VRExICyVHyJY5u7QIbzbG6NLdcCLrwMpBSCVtNujqF10VGGSCytqqRRjRwLppk1Ea/0XEmhV7daQg2UoGBiOVY/9XlhaI/CxhpnWPutzky5tVvZ2saVwDxPlA/OpJjheZj3qQ5vrZSn3kRnjknVg53RU=
+  bucket: archguide
+  local-dir: output
+  acl: 'public_read'
+  skip_cleanup: true
+  on:
+    repo: thepracticaldeveloper/practical-architecture
