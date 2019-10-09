@@ -3,7 +3,8 @@ jdk:
   - openjdk8
 
 before_install:
-  - sudo apt-get install -y pandoc
+  - sudo apt-get update
+  - sudo apt-get install -y pandoc python-pydot python-pydot-ng graphviz
 
 script: ./generate-guide.sh
 
