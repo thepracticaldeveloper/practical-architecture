@@ -2,7 +2,9 @@
 
 ## Intro
 
-This repository contains all the documentation templates and examples that are described in the book [The Practical Architecture Process](https://leanpub.com/practical-software-architecture). 
+This repository contains a set of Software Architecture document templates and examples in Markdown format. It also includes scripts to generate a basic website in HTML. You can use it as a baseline to build all your Software Architecture docs. 
+
+These artifacts are described in the book [The Practical Architecture Process](https://leanpub.com/practical-software-architecture), which main focus is not the Architecture Guide itself, but the **process** you follow to obtain these artifacts and a proper Software Architecture. Get the book on [LeanPub](https://leanpub.com/practical-software-architecture).
 
 ## Contents
 
