@@ -1,14 +1,29 @@
-language: java
-jdk:
-  - openjdk8
+stages:
+  - build
+  - deploy
+  - quboo
 
-before_install:
-  - sudo apt-get update
-  - sudo apt-get install -y pandoc python-pydot python-pydot-ng graphviz
+# Only tries to build the pages (for branches)
+build:
+  name: "Generate guide (branch)"
+  language: java
+  jdk:
+    - openjdk8
+  skip_cleanup: true
+  before_script:
+    - sudo apt-get update
+    - sudo apt-get install -y pandoc python-pydot python-pydot-ng graphviz
+  script:
+    - ./generate-guide.sh
+  exclude:
+    - master
 
-script: ./generate-guide.sh
-
+# Deploys the HTML docs to an S3 bucket
 deploy:
+  name: "Deploy Architecture Guide"
+  language: java
+  jdk:
+    - openjdk8
   provider: s3
   access_key_id: AKIARMRCKXQVNT2WVEXY
   secret_access_key:
@@ -17,5 +32,25 @@ deploy:
   local-dir: output
   acl: 'public_read'
   skip_cleanup: true
+  before_script:
+    - sudo apt-get update
+    - sudo apt-get install -y pandoc python-pydot python-pydot-ng graphviz
+  script:
+    - ./generate-guide.sh
+  only:
+    - master
+  on:
+    repo: thepracticaldeveloper/practical-architecture
+
+# Use Quboo to encourage others to write documentation. Check https://quboo.tpd.io for instructions.
+quboo:
+  name: "Give score in Quboo.io"
+  image: mechero/quboo-cli:latest
+  dependencies:
+    - deploy
+  script:
+    - quboo doc "Doc added to Architecture Guide"
+  only:
+    - master
   on:
     repo: thepracticaldeveloper/practical-architecture
