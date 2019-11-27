@@ -50,10 +50,10 @@ jobs:
         - sudo apt-get install -y httpie
       script:
         - export QUBOO_UNIQUE_ID=`git log -1 --pretty=format:%h`
-        - export QUBOO_PLAYER_USERNAME=`git log -1 --pretty=format:%an`
+        - export QUBOO_PLAYER_USERNAME=`git log -1 --pretty=format:%an | sed -e 's/ /_/g'`
         - http PUT https://api.quboo.io/score/documentation
           x-quboo-access-key:${QUBOO_ACCESS_KEY} x-quboo-secret-key:${QUBOO_SECRET_KEY}
-          playerLogin=${QUBOO_PLAYER_USERNAME} uniqueId=${QUBOO_UNIQUE_ID}
+          playerLogin="${QUBOO_PLAYER_USERNAME}" uniqueId=${QUBOO_UNIQUE_ID}
           description="Contribution to Documentation"
       # if: branch = master
       on:
