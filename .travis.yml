@@ -6,9 +6,7 @@ stages:
 # Only tries to build the pages (for branches)
 build:
   name: "Generate guide (branch)"
-  language: java
-  jdk:
-    - openjdk8
+  image: openjdk:8-jdk-slim
   skip_cleanup: true
   before_script:
     - sudo apt-get update
@@ -21,9 +19,7 @@ build:
 # Deploys the HTML docs to an S3 bucket
 deploy:
   name: "Deploy Architecture Guide"
-  language: java
-  jdk:
-    - openjdk8
+  image: openjdk:8-jdk-slim
   provider: s3
   access_key_id: AKIARMRCKXQVNT2WVEXY
   secret_access_key:
