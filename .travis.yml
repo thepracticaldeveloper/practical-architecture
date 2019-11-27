@@ -35,6 +35,9 @@ jobs:
         - sudo apt-get install -y pandoc python-pydot python-pydot-ng graphviz
       script:
         - ./generate-guide.sh
+      branches:
+        only:
+          - master
       on:
         repo: thepracticaldeveloper/practical-architecture
 
@@ -44,9 +47,18 @@ jobs:
       image: mechero/quboo-cli:latest
       dependencies:
         - deploy
+      before_script:
+        - sudo apt-get update
+        - sudo apt-get install -y httpie
       script:
-        - quboo doc "Doc added to Architecture Guide"
-      only:
-        - master
+        - export QUBOO_UNIQUE_ID=`git log -1 --pretty=format:%h`
+        - export QUBOO_PLAYER_USERNAME=`git log -1 --pretty=format:%an`
+        - http PUT https://api.quboo.io/score/documentation \
+          x-quboo-access-key:${QUBOO_ACCESS_KEY} x-quboo-secret-key:${QUBOO_SECRET_KEY} \
+          playerLogin=${QUBOO_PLAYER_USERNAME} uniqueId=${QUBOO_UNIQUE_ID} \
+          description="Contribution to Documentation"
+#      branches:
+#        only:
+#          - master
       on:
         repo: thepracticaldeveloper/practical-architecture
