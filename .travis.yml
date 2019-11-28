@@ -13,7 +13,7 @@ jobs:
         - sudo apt-get install -y pandoc python-pydot python-pydot-ng graphviz
       script:
         - ./generate-guide.sh
-      if: branch != master
+      if: branch != master OR type=pull_request
 
     # Deploys the HTML docs to an S3 bucket
     - stage: deploy
@@ -34,14 +34,13 @@ jobs:
         - sudo apt-get install -y pandoc python-pydot python-pydot-ng graphviz
       script:
         - ./generate-guide.sh
-      if: branch = master
+      if: branch = master AND type!=pull_request
       on:
         repo: thepracticaldeveloper/practical-architecture
 
     # Use Quboo to encourage others to write documentation. Check https://quboo.tpd.io for instructions.
     - stage: quboo
       name: "Give score in Quboo.io"
-      image: mechero/quboo-cli:latest
       dependencies:
         - deploy
       before_script:
@@ -49,11 +48,11 @@ jobs:
         - sudo apt-get install -y httpie
       script:
         - export QUBOO_UNIQUE_ID=`git log -1 --pretty=format:%h`
-        - export QUBOO_PLAYER_USERNAME=`git log -1 --pretty=format:%an | sed -e 's/ /_/g'`
-        - http PUT https://api.quboo.io/score/documentation
+        - export QUBOO_PLAYER_USERNAME=`git log -1 --pretty=format:%an | tr -cd '[:alnum:]._-@+'`
+        - http --check-status PUT https://api.quboo.io/score/documentation
           x-quboo-access-key:${QUBOO_ACCESS_KEY} x-quboo-secret-key:${QUBOO_SECRET_KEY}
           playerLogin="${QUBOO_PLAYER_USERNAME}" uniqueId=${QUBOO_UNIQUE_ID}
           description="Contribution to Documentation"
-      if: branch = master
+      if: branch = master AND type!=pull_request
       on:
         repo: thepracticaldeveloper/practical-architecture
