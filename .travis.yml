@@ -41,7 +41,6 @@ jobs:
     # Use Quboo to encourage others to write documentation. Check https://quboo.tpd.io for instructions.
     - stage: quboo
       name: "Give score in Quboo.io"
-      image: mechero/quboo-cli:latest
       dependencies:
         - deploy
       before_script:
