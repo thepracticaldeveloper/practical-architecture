@@ -54,6 +54,6 @@ jobs:
           x-quboo-access-key:${QUBOO_ACCESS_KEY} x-quboo-secret-key:${QUBOO_SECRET_KEY}
           playerLogin="${QUBOO_PLAYER_USERNAME}" uniqueId=${QUBOO_UNIQUE_ID}
           description="Contribution to Documentation"
-      # if: branch = master
+      if: branch = master
       on:
         repo: thepracticaldeveloper/practical-architecture
